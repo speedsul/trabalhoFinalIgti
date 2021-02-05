@@ -33,7 +33,7 @@ app.get('/api/', (_, response) => {
 /**
  * Rotas principais do app
  */
-app.use('/api/transaction', routes);
+app.use('/api', routes);
 
 /**
  * Conexão ao Banco de Dados
@@ -46,6 +46,7 @@ mongoose.connect(
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useFindAndModify: false
   },
   (err) => {
     if (err) {

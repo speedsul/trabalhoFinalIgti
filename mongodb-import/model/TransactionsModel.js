@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
-let schema = mongoose.Schema({
+const TransactionSchema = mongoose.Schema({
   description: {
     type: String,
     require: true,
@@ -19,20 +19,20 @@ let schema = mongoose.Schema({
   },
   month: {
     type: Number,
-    require: true,
+    require: true    
   },
   day: {
     type: Number,
-    require: true,
+    require: true    
   },
   yearMonth: {
     type: String,
+    
   },
   yearMonthDay: {
     type: String,
-  },
+  }
 });
 
-const TransactionModel = mongoose.model('transaction', schema);
-
-module.exports = TransactionModel;
+const TransactionModel = mongoose.model('transactions', TransactionSchema, 'transactions');
+export  { TransactionModel };
