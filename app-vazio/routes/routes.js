@@ -35,6 +35,17 @@ transactionRouter.patch('/transaction/:id', async (req, res) => {
     console.log(err);
   }
 });
+//DELETE api/transaction/:id
+transactionRouter.delete('/transaction/:id', async (req, res) => {
+  try {     
+    const id = req.params.id;
+    const transactions = await TransactionModel.findByIdAndDelete({_id: id} );    
+    
+    res.status(200).send(transactions);
+  } catch (err) {
+    console.log(err);
+  }
+});
 
 
 
